@@ -80,7 +80,7 @@ sleep(7); // This is for processing payment and getting response
 
 // 7th Request: Get Response Page + Capture it
 $URL = "https://".$URLBase.$url."/processing?from_processing_page=1";
-$R = (CurlX::Get($URL, NULL, $cookie, $PRX)->body);
+echo$R = (CurlX::Get($URL, NULL, $cookie, $PRX)->body);
 echo$Response = CurlX::ParseString($R, '<p class="notice__text">', '</p>');
 
 // Verify Responses
