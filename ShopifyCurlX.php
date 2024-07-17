@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+error_reporting(0);
 ini_set('display_errors', 1);
 include "CurlX.php";
 
@@ -81,7 +81,7 @@ sleep(7); // This is for processing payment and getting response
 // 7th Request: Get Response Page + Capture it
 $URL = "https://".$URLBase.$url."/processing?from_processing_page=1";
 $R = (CurlX::Get($URL, NULL, $cookie, $PRX)->body);
-$Response = CurlX::ParseString($R, '<p class="notice__text">', '</p>');
+echo$Response = CurlX::ParseString($R, '<p class="notice__text">', '</p>');
 
 // Verify Responses
 if (strpos($R, 'Thank you for your purchase!') !== false || strpos($R, 'You’ll receive a confirmation email with your order number shortly.') !== false || strpos($R, 'Thank you! -') !== false || strpos($R, 'You can find your order number in the receipt you received via email.') !== false) {
